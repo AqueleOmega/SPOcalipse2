@@ -11,7 +11,6 @@ public class Andar : MonoBehaviour
     public float velocidade = 1;
     public float force_pulo = 1000;
     float rotation = 0;
-    bool noChao = false;
     bool arma = false;
     int pulo = 0;
     public SpriteRenderer sr;
@@ -56,24 +55,21 @@ public class Andar : MonoBehaviour
         rb.linearVelocityX = movimento.x * velocidade;
         if (rb.linearVelocityY == 0)
         {
-            noChao = true;
             pulo = 2;
         }
         else
         {
-            noChao = false;
         }
 
         if (movimento.x == 1)
         {
-            Debug.Log("1");
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
             rotation = 0;
 
         }
         else if (movimento.x == -1)
         {
-            Debug.Log("-1");
-            gameObject.transform.rotation = Quarternion.eule
+            gameObject.transform.rotation = Quaternion.Euler(0, -180, 0);
             rotation = -180;
         }
     }
